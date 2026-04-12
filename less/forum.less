@@ -1,4 +1,4 @@
-.Afrux-NewsWidget {
+.FoF-NewsWidget {
   color: @control-color;
 
   &-content {
@@ -15,13 +15,13 @@
     visibility: hidden;
 
     &--previous {
-      animation: afrux-text-fade-out 0.2s ease-in-out infinite;
+      animation: fof-text-fade-out 0.2s ease-in-out infinite;
       opacity: 0;
       visibility: hidden;
     }
 
     &--current {
-      animation: afrux-text-fade-in 0.2s ease-in-out infinite;
+      animation: fof-text-fade-in 0.2s ease-in-out infinite;
       opacity: 0;
       visibility: hidden;
     }
@@ -37,7 +37,7 @@
   }
 }
 
-@keyframes afrux-text-fade-out {
+@keyframes fof-text-fade-out {
   0, 100% {
     opacity: 1;
     visibility: visible
@@ -49,7 +49,7 @@
   }
 }
 
-@keyframes afrux-text-fade-in {
+@keyframes fof-text-fade-in {
   0, 100% {
     opacity: 0;
     visibility: hidden

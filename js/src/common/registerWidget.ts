@@ -1,17 +1,17 @@
-import type Application from 'flarum/common/Application';
-import Widgets from 'flarum/extensions/afrux-forum-widgets-core/common/extend/Widgets';
+import app from 'flarum/common/app';
+import Widgets from 'flarum/extensions/fof-forum-widgets-core/common/extend/Widgets';
 
 import NewsWidget from './components/NewsWidget';
 
-export default function (app: Application) {
+export default function () {
   new Widgets()
     .add({
       key: 'news',
       component: NewsWidget,
-      isDisabled: () => !app.forum.attribute('afrux-news-widget.lines').length,
+      isDisabled: () => !app.forum.attribute<string>('fof-news-widget.lines').length,
       isUnique: true,
       placement: 'top',
       position: 1,
     })
-    .extend(app, 'afrux-news-widget');
+    .extend(app, 'fof-news-widget');
 }

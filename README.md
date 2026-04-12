@@ -1,6 +1,6 @@
-# News Widget
+# FoF News Widget
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square) [![Latest Stable Version](https://img.shields.io/packagist/v/afrux/news-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/news-widget) [![Total Downloads](https://img.shields.io/packagist/dt/afrux/news-widget.svg?style=flat-square)](https://packagist.org/packages/afrux/news-widget) [![donate](https://img.shields.io/badge/donate-buy%20me%20a%20coffee-%23ffde39?style=flat-square)](https://www.buymeacoffee.com/sycho)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square) [![Latest Stable Version](https://img.shields.io/packagist/v/fof/news-widget.svg?style=flat-square)](https://packagist.org/packages/fof/news-widget) [![Total Downloads](https://img.shields.io/packagist/dt/fof/news-widget.svg?style=flat-square)](https://packagist.org/packages/fof/news-widget)
 
 A [Flarum](http://flarum.org) extension. Simple news fader widget.
 
@@ -8,24 +8,24 @@ A [Flarum](http://flarum.org) extension. Simple news fader widget.
 
 ## Installation
 
-This will also install [Forum Widgets Core](https://github.com/afrux/forum-widgets-core) as it relies on it.
+This will also install [Forum Widgets Core](https://github.com/FriendsOfFlarum/forum-widgets-core) as it relies on it.
 
 Install with composer:
 
 ```sh
-composer require afrux/news-widget:"*"
+composer require fof/news-widget:"*"
 ```
 
 ## Updating
 
 ```sh
-composer update afrux/news-widget:"*" --with-dependencies
+composer update fof/news-widget:"*" --with-dependencies
 php flarum migrate
 php flarum cache:clear
 ```
 
 ## Links
 
-- [Packagist](https://packagist.org/packages/afrux/news-widget)
-- [GitHub](https://github.com/afrux/news-widget)
+- [Packagist](https://packagist.org/packages/fof/news-widget)
+- [GitHub](https://github.com/FriendsOfFlarum/news-widget)
 - [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)

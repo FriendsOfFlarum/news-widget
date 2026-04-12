@@ -1,5 +1,6 @@
+import app from 'flarum/forum/app';
 import registerWidget from '../common/registerWidget';
 
-app.initializers.add('afrux/news-widget', () => {
-  registerWidget(app);
+app.initializers.add('fof/news-widget', () => {
+  registerWidget();
 });

@@ -4,7 +4,7 @@ import icon from 'flarum/common/helpers/icon';
 import classList from 'flarum/common/utils/classList';
 import Stream from 'flarum/common/utils/Stream';
 
-import Widget, { WidgetAttrs } from 'flarum/extensions/afrux-forum-widgets-core/common/components/Widget';
+import Widget, { WidgetAttrs } from 'flarum/extensions/fof-forum-widgets-core/common/components/Widget';
 
 export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
   private newslines!: string[];
@@ -14,13 +14,13 @@ export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
   oninit(vnode: Mithril.Vnode<T, this>) {
     super.oninit(vnode);
 
-    this.newslines = app.forum.attribute('afrux-news-widget.lines');
+    this.newslines = app.forum.attribute('fof-news-widget.lines');
     this.line = Stream({ index: 0, text: this.newslines[0] });
     this.switching = false;
   }
 
   className() {
-    return 'Afrux-NewsWidget';
+    return 'FoF-NewsWidget';
   }
 
   icon() {
@@ -51,15 +51,15 @@ export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
     }
 
     return (
-      <div className="Afrux-NewsWidget-content">
-        <div className="Afrux-NewsWidget-icon">{icon('fas fa-bullhorn')}</div>
-        <div className="Afrux-NewsWidget-line-container">
+      <div className="FoF-NewsWidget-content">
+        <div className="FoF-NewsWidget-icon">{icon('fas fa-bullhorn')}</div>
+        <div className="FoF-NewsWidget-line-container">
           {this.newslines.map((line, index) => (
             <div
               className={classList([
-                'Afrux-NewsWidget-line',
-                this.line().index === index ? 'Afrux-NewsWidget-line--current' : '',
-                prevLine === line ? 'Afrux-NewsWidget-line--previous' : '',
+                'FoF-NewsWidget-line',
+                this.line().index === index ? 'FoF-NewsWidget-line--current' : '',
+                prevLine === line ? 'FoF-NewsWidget-line--previous' : '',
               ])}
               key={index}
             >

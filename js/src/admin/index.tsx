@@ -2,17 +2,18 @@ import app from 'flarum/admin/app';
 import Button from 'flarum/common/components/Button';
 import registerWidget from '../common/registerWidget';
 import Alert from 'flarum/common/components/Alert';
+import type ExtensionPage from 'flarum/admin/components/ExtensionPage';
 
-app.initializers.add('afrux/news-widget', () => {
-  registerWidget(app);
+app.initializers.add('fof/news-widget', () => {
+  registerWidget();
 
-  const settingKey = 'afrux-news-widget.lines';
+  const settingKey = 'fof-news-widget.lines';
 
   app.extensionData
-    .for('afrux-news-widget')
-    .registerSetting(function () {
+    .for('fof-news-widget')
+    .registerSetting(function (this: ExtensionPage) {
       return (
-        <div className="Form-group Afrux-NewsWidget-htmlWarning">
+        <div className="Form-group FoF-NewsWidget-htmlWarning">
           <Button
             className="Button"
             onclick={() => {
@@ -21,22 +22,22 @@ app.initializers.add('afrux/news-widget', () => {
               this.setting(settingKey)(JSON.stringify([...value, '']));
             }}
           >
-            {app.translator.trans('afrux-news-widget.admin.settings.add_line')}
+            {app.translator.trans('fof-news-widget.admin.settings.add_line')}
           </Button>
-          <Alert dismissible={false}>{app.translator.trans('afrux-news-widget.admin.settings.html_warning')}</Alert>
+          <Alert dismissible={false}>{app.translator.trans('fof-news-widget.admin.settings.html_warning')}</Alert>
         </div>
       );
     })
-    .registerSetting(function () {
+    .registerSetting(function (this: ExtensionPage) {
       const value = JSON.parse(this.setting(settingKey)() || '[]');
 
       if (!value.length) return;
 
       return (
         <div className="Form-group">
-          <label>{app.translator.trans('afrux-news-widget.admin.settings.lines')}</label>
+          <label>{app.translator.trans('fof-news-widget.admin.settings.lines')}</label>
           {value.map((line: string, index: number) => (
-            <div className="Afrux-NewsWidget-lineSetting">
+            <div className="FoF-NewsWidget-lineSetting">
               <textarea
                 className="FormControl"
                 oninput={(e: any) => {
