@@ -4,7 +4,7 @@ import Icon from 'flarum/common/components/Icon';
 import classList from 'flarum/common/utils/classList';
 import Stream from 'flarum/common/utils/Stream';
 
-import Widget, { WidgetAttrs } from 'flarum/extensions/fof-forum-widgets-core/common/components/Widget';
+import Widget, { WidgetAttrs } from 'ext:fof/forum-widgets-core/common/components/Widget';
 
 export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
   private newslines!: string[];
