@@ -9,7 +9,7 @@ app.initializers.add('fof/news-widget', () => {
 
   const settingKey = 'fof-news-widget.lines';
 
-  app.extensionData
+  app.registry
     .for('fof-news-widget')
     .registerSetting(function (this: ExtensionPage) {
       return (

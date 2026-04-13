@@ -1,6 +1,6 @@
 import type Mithril from 'mithril';
 import app from 'flarum/common/app';
-import icon from 'flarum/common/helpers/icon';
+import Icon from 'flarum/common/components/Icon';
 import classList from 'flarum/common/utils/classList';
 import Stream from 'flarum/common/utils/Stream';
 
@@ -52,7 +52,9 @@ export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
 
     return (
       <div className="FoF-NewsWidget-content">
-        <div className="FoF-NewsWidget-icon">{icon('fas fa-bullhorn')}</div>
+        <div className="FoF-NewsWidget-icon">
+          <Icon name="fas fa-bullhorn" />
+        </div>
         <div className="FoF-NewsWidget-line-container">
           {this.newslines.map((line, index) => (
             <div
