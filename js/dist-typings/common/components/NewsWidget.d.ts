@@ -3,8 +3,10 @@ import Widget, { WidgetAttrs } from 'ext:fof/forum-widgets-core/common/component
 export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
     private newslines;
     private line;
-    private switching;
+    private rotation?;
     oninit(vnode: Mithril.Vnode<T, this>): void;
+    oncreate(vnode: Mithril.VnodeDOM<T, this>): void;
+    onremove(vnode: Mithril.VnodeDOM<T, this>): void;
     className(): string;
     icon(): string;
     title(): string;
