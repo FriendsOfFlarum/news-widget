@@ -9,14 +9,32 @@ import Widget, { WidgetAttrs } from 'ext:fof/forum-widgets-core/common/component
 export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
   private newslines!: string[];
   private line!: CallableFunction;
-  private switching!: boolean;
+  private rotation?: ReturnType<typeof setInterval>;
 
   oninit(vnode: Mithril.Vnode<T, this>) {
     super.oninit(vnode);
 
     this.newslines = app.forum.attribute('fof-news-widget.lines');
     this.line = Stream({ index: 0, text: this.newslines[0] });
-    this.switching = false;
+  }
+
+  oncreate(vnode: Mithril.VnodeDOM<T, this>) {
+    super.oncreate(vnode);
+
+    if (this.newslines.length > 1) {
+      this.rotation = setInterval(() => {
+        const newLineIndex = (this.line().index + 1) % this.newslines.length;
+
+        this.line({ index: newLineIndex, text: this.newslines[newLineIndex] });
+        m.redraw();
+      }, 7000);
+    }
+  }
+
+  onremove(vnode: Mithril.VnodeDOM<T, this>) {
+    super.onremove(vnode);
+
+    clearInterval(this.rotation);
   }
 
   className() {
@@ -32,18 +50,6 @@ export default class NewsWidget<T extends WidgetAttrs> extends Widget<T> {
   }
 
   content(): Mithril.Children {
-    if (this.newslines.length > 1 && !this.switching) {
-      this.switching = true;
-
-      setTimeout(() => {
-        const newLineIndex = (this.line().index + 1) % this.newslines.length;
-
-        this.switching = false;
-        this.line({ index: newLineIndex, text: this.newslines[newLineIndex] });
-        m.redraw();
-      }, 7000);
-    }
-
     let prevLine: string;
 
     if (this.newslines.length > 1) {
